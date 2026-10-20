@@ -1,0 +1,11 @@
+{
+  "selection": "максимальный средний ROC-AUC на кросс-валидации по месяцам обучающей части",
+  "target": "high_views",
+  "feature_set": "B",
+  "model": "LightGBM",
+  "params": {
+    "learning_rate": 0.05,
+    "num_leaves": 31
+  },
+  "cv_roc_auc": 0.6810727159418709
+}

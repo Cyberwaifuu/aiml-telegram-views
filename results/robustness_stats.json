@@ -1,0 +1,15 @@
+{
+  "posts_aged": 65579,
+  "groups_total": 931,
+  "groups_excluded": 155,
+  "posts_excluded": 754,
+  "posts_kept": 64825,
+  "groups_kept": 776,
+  "posts_train": 52248,
+  "posts_test": 12577,
+  "positive_share": 0.49596606247589664,
+  "boundary_week": "2026-W27",
+  "boundary_first_day": "2026-06-29",
+  "boundary_last_day": "2026-07-05",
+  "posts_v2": 65360
+}

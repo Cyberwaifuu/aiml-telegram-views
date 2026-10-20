@@ -1,0 +1,25 @@
+data/
+.venv/
+__pycache__/
+.ruff_cache/
+for_article/
+.claude/
+CLAUDE.md
+*.session
+*.session-journal
+.env
+*.parquet
+logs/
+*.log
+tmp/
+temp/
+scratch/
+*.tmp
+prompts/
+*prompt*.md
+*prompt*.txt
+
+# Contain channel names or lines from post texts; not published.
+provenance/
+results/summary.md
+results/term_boilerplate.csv
