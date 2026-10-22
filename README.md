@@ -24,11 +24,12 @@ The corpus is not included. The scripts expect these files in `data/`:
 
 - `corpus.parquet`: posts with columns `doc_id`, `source`, `channel`, `actor_type`, `date`,
   `local_day`, `text`, `language`, `keyword_pass`, `matched_keywords_ru`, `matched_keywords_kz`,
-  `p_on_topic`, `views`, `forwards`. Only rows with `source = "telegram_post"` are used;
-  `build_dataset.py` expects 71,351 of them.
+  `p_on_topic`, `views`, `forwards`, `replies_count`. Only rows with
+  `source = "telegram_post"` are used; `build_dataset.py` expects 71,351 of them.
 - `collection_times.parquet`: `doc_id`, `channel`, `collected_at_est`, `run_label` (collection
   run), `age_days` (post age at collection, days).
-- `channels.csv`: `channel`, `subscribers`. Read by `v3.py`.
+- `channels.csv`: `channel`, `actor_type`, `subtype`, `subscribers`, `verified_at`, `added`,
+  `first_collected`. Read by `v3.py`.
 - `channel_name_extras.txt`: channel names that are removed from post texts before the term
   tables, one per line, in addition to names taken from the channel handles. Read by
   `diagnostics.py` and `make_summary.py`.
@@ -66,6 +67,22 @@ python src/v3.py
 `v3.py` runs after the main pipeline. It adds the extended feature groups (posting context,
 the channel's earlier views, the channel itself), reads `results/` and writes only to
 `results_v3/`.
+
+## Article figures and tables
+
+```
+python src/article_figures.py
+python src/article_tables.py
+```
+
+- `article_figures.py` writes `article/figures.xlsx` (Figures 1, 3 and 4 as Excel charts) from
+  `results/monthly_medians.csv`, `results/permutation_importance.csv` and
+  `results/high_views_by_time.csv`.
+- `article/figure2_pipeline.drawio` is Figure 2 (open in draw.io).
+- `article/figure*.png` are the images used in the article.
+- `article_tables.py` writes `article/table1.csv` (Table 1). It reads
+  `data/posts_features.parquet`, so it needs the corpus.
+- `article/verify_output.txt` is the output of `verify.py`.
 
 ## Notes
 
