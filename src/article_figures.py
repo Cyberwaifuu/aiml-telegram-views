@@ -11,7 +11,7 @@ import pandas as pd
 from openpyxl import Workbook
 from openpyxl.chart import BarChart, LineChart, Reference
 from openpyxl.chart.label import DataLabelList
-from openpyxl.chart.series import SeriesLabel
+from openpyxl.chart.series import Series, SeriesLabel
 from openpyxl.chart.shapes import GraphicalProperties
 from openpyxl.chart.text import RichText
 from openpyxl.drawing.line import LineProperties
@@ -72,7 +72,7 @@ def style_axes(chart: LineChart | BarChart, x_title: str | None, y_title: str) -
     chart.graphical_properties = GraphicalProperties(ln=LineProperties(noFill=True))
 
 
-def style_line(series, color: str, symbol: str) -> None:
+def style_line(series: Series, color: str, symbol: str) -> None:
     series.graphicalProperties.line.solidFill = color
     series.graphicalProperties.line.width = 22225
     series.marker.symbol = symbol
